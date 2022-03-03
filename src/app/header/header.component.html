@@ -1,11 +1,10 @@
 <header class="header">
   <h1>todos</h1>
-  <input class="new-todo"
-         placeholder="What needs to be done?"
-         autofocus
-         [value]="text"
-         (keyup)="changeText($event)"
-         (keyup.enter)="addTodo()"
-  >
+  <form [formGroup]="todoForm">
+    <input (keyup.enter)!="addTodo()" class="new-todo"
+           formControlName="newTodo"
+           placeholder="What needs to be done?"
+           type="text"
+    >
+  </form>
 </header>
-

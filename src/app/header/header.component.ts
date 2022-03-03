@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {TodosService} from "../todos/todos/todos.service";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-todos-header',
@@ -7,19 +8,17 @@ import {TodosService} from "../todos/todos/todos.service";
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  text: string = '';
+
+  todoForm = new FormGroup({
+    newTodo: new FormControl()
+  })
 
   constructor(private todoService: TodosService) {
   }
 
-  changeText(event: Event): void {
-    const target = event.target as HTMLInputElement
-    this.text = target.value;
-  }
 
   addTodo(): void {
-    this.todoService.addTodo(this.text);
-    this.text = '';
+    this.todoService.addTodo(this.todoForm.controls['newTodo'].value);
 
   }
 }

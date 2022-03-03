@@ -8,6 +8,7 @@ import {TodosService} from "./todos/todos.service";
 import {MainComponent} from "../main/main/main.component";
 import {TodoComponent} from "../todo/todo.component";
 import {FooterComponent} from './todos/footer/footer.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 const routes: Routes = [
   {
@@ -20,7 +21,7 @@ const routes: Routes = [
   declarations: [
     TodosComponent, HeaderComponent, MainComponent, TodoComponent, FooterComponent
   ],
-  imports: [CommonModule, RouterModule.forChild(routes)],
+    imports: [CommonModule, RouterModule.forChild(routes), ReactiveFormsModule],
   providers: [TodosService],
 })
 export class TodosModule {
